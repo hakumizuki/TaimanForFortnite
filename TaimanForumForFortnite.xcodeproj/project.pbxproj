@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC33248981790019BC97 /* AppDelegate.swift */; };
 		9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC35248981790019BC97 /* SceneDelegate.swift */; };
-		9E89DC38248981790019BC97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC37248981790019BC97 /* ContentView.swift */; };
+		9E89DC38248981790019BC97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC37248981790019BC97 /* HomeView.swift */; };
 		9E89DC3A2489817E0019BC97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC392489817E0019BC97 /* Assets.xcassets */; };
 		9E89DC3D2489817E0019BC97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC3C2489817E0019BC97 /* Preview Assets.xcassets */; };
 		9E89DC402489817E0019BC97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC3E2489817E0019BC97 /* LaunchScreen.storyboard */; };
+		9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E89DC30248981790019BC97 /* TaimanForumForFortnite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaimanForumForFortnite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E89DC33248981790019BC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E89DC35248981790019BC97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9E89DC37248981790019BC97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9E89DC37248981790019BC97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9E89DC392489817E0019BC97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E89DC3C2489817E0019BC97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E89DC3F2489817E0019BC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E89DC412489817E0019BC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanPostsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,7 @@
 			children = (
 				9E89DC33248981790019BC97 /* AppDelegate.swift */,
 				9E89DC35248981790019BC97 /* SceneDelegate.swift */,
-				9E89DC37248981790019BC97 /* ContentView.swift */,
+				9E89DC49248A35220019BC97 /* Views */,
 				9E89DC392489817E0019BC97 /* Assets.xcassets */,
 				9E89DC3E2489817E0019BC97 /* LaunchScreen.storyboard */,
 				9E89DC412489817E0019BC97 /* Info.plist */,
@@ -73,6 +75,15 @@
 				9E89DC3C2489817E0019BC97 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9E89DC49248A35220019BC97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC37248981790019BC97 /* HomeView.swift */,
+				9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +159,8 @@
 			files = (
 				9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */,
 				9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */,
-				9E89DC38248981790019BC97 /* ContentView.swift in Sources */,
+				9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */,
+				9E89DC38248981790019BC97 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
