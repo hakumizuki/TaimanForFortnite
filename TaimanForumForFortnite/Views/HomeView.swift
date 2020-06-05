@@ -17,25 +17,25 @@ struct HomeView: View {
                 Text("Taiman Posts")
                     .tabItem {
                         Image(systemName: "doc.plaintext")
-                        Text("Taiman Posts")
+                        Text("1v1掲示板")
                     }
                 
                 Text("My Taiman")
                     .tabItem {
                         Image(systemName: "doc.on.doc")
-                        Text("My Taiman")
+                        Text("1v1リスト")
                     }
                 
                 Text("Chat")
                     .tabItem {
                         Image(systemName: "message.fill")
-                        Text("Chat")
+                        Text("トーク")
                     }
                 
                 Text("User Settings")
                     .tabItem {
                         Image(systemName: "person.fill")
-                        Text("User Settings")
+                        Text("ユーザー設定")
                     }
                 
             } //End of Tab View
