@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				9E89DC37248981790019BC97 /* HomeView.swift */,
+				9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */,
+				9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */,
 				9E89DC4E248A71DB0019BC97 /* TalkView.swift */,
 				9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */,
-				9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */,
-				9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,6 +422,7 @@
 				DEVELOPMENT_TEAM = VF477Z9U69;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TaimanForumForFortnite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,6 +444,7 @@
 				DEVELOPMENT_TEAM = VF477Z9U69;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TaimanForumForFortnite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

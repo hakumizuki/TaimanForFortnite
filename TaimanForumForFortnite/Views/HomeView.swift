@@ -11,10 +11,10 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         
-        NavigationView {
+        
             TabView {
                 
-                Text("Taiman Posts")
+                TaimanPostsView()
                     .tabItem {
                         Image(systemName: "doc.plaintext")
                         Text("1v1掲示板")
@@ -39,11 +39,8 @@ struct HomeView: View {
                     }
                 
             } //End of Tab View
-                .navigationBarTitle("1v1 掲示板", displayMode: .inline)
-                .navigationBarItems(trailing: Image(systemName: "plus.square.fill").imageScale(.large))
             
             
-        } //End of Navigation View
     }
 }
 
