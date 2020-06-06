@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,9 @@
 		9E89DC4F248A71DB0019BC97 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC4E248A71DB0019BC97 /* TalkView.swift */; };
 		9E89DC51248A71ED0019BC97 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */; };
 		9E89DC55248A787E0019BC97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC54248A787E0019BC97 /* GoogleService-Info.plist */; };
+		9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC57248A9D9A0019BC97 /* Taiman.swift */; };
+		9E89DC5B248AA3B10019BC97 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */; };
+		9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */; };
 		FF233F79575C56531E9424A9 /* Pods_TaimanForumForFortnite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		9E89DC4E248A71DB0019BC97 /* TalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		9E89DC54248A787E0019BC97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E89DC57248A9D9A0019BC97 /* Taiman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taiman.swift; sourceTree = "<group>"; };
+		9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
+		9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanRow.swift; sourceTree = "<group>"; };
 		C1CF840D35C60FAE53FCF225 /* Pods-TaimanForumForFortnite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaimanForumForFortnite.release.xcconfig"; path = "Target Support Files/Pods-TaimanForumForFortnite/Pods-TaimanForumForFortnite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +90,9 @@
 				9E89DC33248981790019BC97 /* AppDelegate.swift */,
 				9E89DC35248981790019BC97 /* SceneDelegate.swift */,
 				9E89DC49248A35220019BC97 /* Views */,
+				9E89DC5C248BEFD00019BC97 /* Components */,
+				9E89DC56248A9D7E0019BC97 /* Models */,
+				9E89DC59248AA3870019BC97 /* Helpers */,
 				9E89DC3E2489817E0019BC97 /* LaunchScreen.storyboard */,
 				9E89DC412489817E0019BC97 /* Info.plist */,
 				9E89DC54248A787E0019BC97 /* GoogleService-Info.plist */,
@@ -113,13 +122,36 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9E89DC56248A9D7E0019BC97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC57248A9D9A0019BC97 /* Taiman.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E89DC59248AA3870019BC97 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9E89DC5C248BEFD00019BC97 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FB6053649AB6B99FC0866CDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				0C8CFEBA28973D7E0051C772 /* Pods-TaimanForumForFortnite.debug.xcconfig */,
 				C1CF840D35C60FAE53FCF225 /* Pods-TaimanForumForFortnite.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -240,7 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */,
+				9E89DC5B248AA3B10019BC97 /* FirebaseReference.swift in Sources */,
+				9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */,
 				9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */,
+				9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */,
 				9E89DC4F248A71DB0019BC97 /* TalkView.swift in Sources */,
 				9E89DC4D248A71C00019BC97 /* TaimanListsView.swift in Sources */,
 				9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */,
