@@ -9,16 +9,13 @@
 import Foundation
 import SwiftUI
 
-enum PlayerLevel: String, Codable {
-    case 誰でもオッケー！
-    case 初心者同士で！
-    case 上級者求む！
-}
-
-struct Taiman: Identifiable{
+struct Taiman: Identifiable {
     var id: String
     var createdAt: String
     var ownerId: String
-    var description: String
-    var playerLevel: PlayerLevel
+    var playerLevel: String
+    var weaponsRule: String
+    var fallDamage: String
+    var grappler: String
+    var healItem: String
 }

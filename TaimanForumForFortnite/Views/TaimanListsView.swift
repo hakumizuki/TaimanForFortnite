@@ -10,7 +10,21 @@ import SwiftUI
 
 struct TaimanListsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                NavigationView {
+            
+            ScrollView(showsIndicators: false) {
+                
+                VStack(spacing: 25) {
+    
+                    Text("kamestry")
+                    
+                }
+                
+            } //End of Scroll View
+            .navigationBarTitle("エントリーした1v1", displayMode: .inline)
+            .background(Color(#colorLiteral(red: 0.09045508068, green: 0.1928802225, blue: 0.3444368101, alpha: 1)))
+            
+        } //End of Navigation View
     }
 }
 

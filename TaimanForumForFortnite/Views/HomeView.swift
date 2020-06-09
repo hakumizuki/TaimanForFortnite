@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     var body: some View {
         
         
@@ -24,12 +25,6 @@ struct HomeView: View {
                     .tabItem {
                         Image(systemName: "doc.on.doc")
                         Text("1v1リスト")
-                    }
-                
-                Text("Chat")
-                    .tabItem {
-                        Image(systemName: "message.fill")
-                        Text("トーク")
                     }
                 
                 Text("User Settings")

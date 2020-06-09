@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct TaimanPostsView: View {
+    @State private var showingAddTaiman = false
+    
     var body: some View {
         
         NavigationView {
@@ -16,22 +18,34 @@ struct TaimanPostsView: View {
             ScrollView(showsIndicators: false) {
                 
                 VStack(spacing: 25) {
-                    TaimanRow(createdAt: "19:42", fortniteId: "さしすせ蘇我氏", description: "ぶち殺します。1v1しましょう。", playerLevel: "誰でもOK！")
-                    TaimanRow(createdAt: "19:39", fortniteId: "GW_Nephrite", description: "げーむうぃずそぞくの、ネフライトです！今日はダマ５匹見つけるまで帰れまてんをしていきたいと思いまth！" ,playerLevel: "誰でもOK！")
-                    TaimanRow(createdAt: "19:20", fortniteId: "vabon.くらら", description: "ぷりっキュア！プリっキュあ！プーリキュッあ！プーりきゅっあ！", playerLevel: "上級者求む！")
-                    TaimanRow(createdAt: "19:09", fortniteId: "GW_Hamuppi", description: "アジア１位とりました！", playerLevel: "初心者同士で！")
-                    TaimanRow(createdAt: "19:03", fortniteId: "haku_mizuki", description: "1v1島でタイマンしましょ〜。青ポンプ、青ARのみで！スマホです！", playerLevel: "誰でもOK！")
+                    TaimanRow()
+                    TaimanRow()
+                    TaimanRow()
+                    TaimanRow()
+                    TaimanRow()
                 }
                 
-            }
+            } //End of Scroll View
             .navigationBarTitle("1v1 掲示板", displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {}){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
-            .background(Color(#colorLiteral(red: 0.09045508068, green: 0.1928802225, blue: 0.3444368101, alpha: 1)))
-            // .sheet(isPresented:)でNew Postを追加
+            .navigationBarItems(trailing:
+                
+                Button(action: {
+                    self.showingAddTaiman.toggle()
+                }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
+                .background(ZStack{
+                    
+                    Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 1))
+
+                    Image("Taiman_For_Fortnite_appIcon").resizable().aspectRatio(contentMode: .fit)})
+            .sheet(isPresented: $showingAddTaiman) {
+                    
+                    AddTaiman()
+                    
+            }
             
-        }
+        } //End of Navigation View
         
-    }
+    } //End of View
 }
 
 struct TaimanPostsView_Previews: PreviewProvider {

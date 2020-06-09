@@ -15,12 +15,18 @@
 		9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */; };
 		9E89DC4B248A70650019BC97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC4A248A70650019BC97 /* Assets.xcassets */; };
 		9E89DC4D248A71C00019BC97 /* TaimanListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */; };
-		9E89DC4F248A71DB0019BC97 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC4E248A71DB0019BC97 /* TalkView.swift */; };
 		9E89DC51248A71ED0019BC97 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */; };
 		9E89DC55248A787E0019BC97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC54248A787E0019BC97 /* GoogleService-Info.plist */; };
 		9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC57248A9D9A0019BC97 /* Taiman.swift */; };
 		9E89DC5B248AA3B10019BC97 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */; };
 		9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */; };
+		9E89DC62248D7B220019BC97 /* AddTaiman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC61248D7B220019BC97 /* AddTaiman.swift */; };
+		9E89DC6A248EDDFD0019BC97 /* NotoSansJP-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC64248EDDF10019BC97 /* NotoSansJP-Black.otf */; };
+		9E89DC6B248EDDFD0019BC97 /* NotoSansJP-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC65248EDDF30019BC97 /* NotoSansJP-Light.otf */; };
+		9E89DC6C248EDDFD0019BC97 /* NotoSansJP-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC66248EDDF60019BC97 /* NotoSansJP-Medium.otf */; };
+		9E89DC6D248EDDFD0019BC97 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC67248EDDF80019BC97 /* NotoSansJP-Regular.otf */; };
+		9E89DC6E248EDDFD0019BC97 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC68248EDDFB0019BC97 /* NotoSansJP-Bold.otf */; };
+		9E89DC6F248EDDFD0019BC97 /* NotoSansJP-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */; };
 		FF233F79575C56531E9424A9 /* Pods_TaimanForumForFortnite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,12 +43,18 @@
 		9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanPostsView.swift; sourceTree = "<group>"; };
 		9E89DC4A248A70650019BC97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanListsView.swift; sourceTree = "<group>"; };
-		9E89DC4E248A71DB0019BC97 /* TalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		9E89DC54248A787E0019BC97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E89DC57248A9D9A0019BC97 /* Taiman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taiman.swift; sourceTree = "<group>"; };
 		9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanRow.swift; sourceTree = "<group>"; };
+		9E89DC61248D7B220019BC97 /* AddTaiman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaiman.swift; sourceTree = "<group>"; };
+		9E89DC64248EDDF10019BC97 /* NotoSansJP-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.otf"; sourceTree = "<group>"; };
+		9E89DC65248EDDF30019BC97 /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.otf"; sourceTree = "<group>"; };
+		9E89DC66248EDDF60019BC97 /* NotoSansJP-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.otf"; sourceTree = "<group>"; };
+		9E89DC67248EDDF80019BC97 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
+		9E89DC68248EDDFB0019BC97 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
+		9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.otf"; sourceTree = "<group>"; };
 		C1CF840D35C60FAE53FCF225 /* Pods-TaimanForumForFortnite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaimanForumForFortnite.release.xcconfig"; path = "Target Support Files/Pods-TaimanForumForFortnite/Pods-TaimanForumForFortnite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +99,7 @@
 		9E89DC32248981790019BC97 /* TaimanForumForFortnite */ = {
 			isa = PBXGroup;
 			children = (
+				9E89DC63248EDB160019BC97 /* Fonts */,
 				9E89DC33248981790019BC97 /* AppDelegate.swift */,
 				9E89DC35248981790019BC97 /* SceneDelegate.swift */,
 				9E89DC49248A35220019BC97 /* Views */,
@@ -116,8 +129,8 @@
 				9E89DC37248981790019BC97 /* HomeView.swift */,
 				9E89DC47248A32FE0019BC97 /* TaimanPostsView.swift */,
 				9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */,
-				9E89DC4E248A71DB0019BC97 /* TalkView.swift */,
 				9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */,
+				9E89DC61248D7B220019BC97 /* AddTaiman.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +157,19 @@
 				9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9E89DC63248EDB160019BC97 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC64248EDDF10019BC97 /* NotoSansJP-Black.otf */,
+				9E89DC68248EDDFB0019BC97 /* NotoSansJP-Bold.otf */,
+				9E89DC65248EDDF30019BC97 /* NotoSansJP-Light.otf */,
+				9E89DC66248EDDF60019BC97 /* NotoSansJP-Medium.otf */,
+				9E89DC67248EDDF80019BC97 /* NotoSansJP-Regular.otf */,
+				9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FB6053649AB6B99FC0866CDA /* Pods */ = {
@@ -216,8 +242,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E89DC402489817E0019BC97 /* LaunchScreen.storyboard in Resources */,
+				9E89DC6A248EDDFD0019BC97 /* NotoSansJP-Black.otf in Resources */,
 				9E89DC55248A787E0019BC97 /* GoogleService-Info.plist in Resources */,
+				9E89DC6F248EDDFD0019BC97 /* NotoSansJP-Thin.otf in Resources */,
+				9E89DC6D248EDDFD0019BC97 /* NotoSansJP-Regular.otf in Resources */,
+				9E89DC6E248EDDFD0019BC97 /* NotoSansJP-Bold.otf in Resources */,
+				9E89DC6B248EDDFD0019BC97 /* NotoSansJP-Light.otf in Resources */,
 				9E89DC4B248A70650019BC97 /* Assets.xcassets in Resources */,
+				9E89DC6C248EDDFD0019BC97 /* NotoSansJP-Medium.otf in Resources */,
 				9E89DC3D2489817E0019BC97 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,9 +308,9 @@
 				9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */,
 				9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */,
 				9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */,
-				9E89DC4F248A71DB0019BC97 /* TalkView.swift in Sources */,
 				9E89DC4D248A71C00019BC97 /* TaimanListsView.swift in Sources */,
 				9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */,
+				9E89DC62248D7B220019BC97 /* AddTaiman.swift in Sources */,
 				9E89DC51248A71ED0019BC97 /* UserSettingsView.swift in Sources */,
 				9E89DC38248981790019BC97 /* HomeView.swift in Sources */,
 			);

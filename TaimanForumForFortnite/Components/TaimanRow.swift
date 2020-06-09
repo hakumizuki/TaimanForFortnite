@@ -12,8 +12,13 @@ struct TaimanRow: View {
     
     var createdAt: String = "19:35"
     var fortniteId: String = "haku_mizuki"
-    var description: String = "20時から1v1島でタイマンお願いします！青ポンプ、紫スカー、ミニポなし、グラップラーあり、落下ダメージなしでやります！中級者です！"
+    var battleMode: String = "建築バトル"
+    var weaponsRule: String = "青ポンプと紫スカー"
     var playerLevel: String = "上級者求む！"
+    var fallDamage: String = "なし"
+    var grappler: String = "あり"
+    var healItem: String = "おまかせ"
+    
     
     
     var body: some View {
@@ -28,17 +33,44 @@ struct TaimanRow: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 60)
                     .font(.headline)
-            }
+            } //End of HStack with time and ID
             .padding()
             
+            HStack {
+                Text("\(battleMode)で勝負")
+                    .font(.custom("NotoSansJP-Bold", size: 17))
+                    .foregroundColor(Color.white)
+                    .padding(.all, 8)
+                
+                Spacer()
+            }  //End of Battle Mode
+                .background(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)))
+                .cornerRadius(10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                .shadow(radius: 5)
+            
+            HStack {
+                Text(weaponsRule)
+                    .font(.custom("NotoSansJP-Bold", size: 17))
+                    .foregroundColor(Color.white)
+                    .padding(.all, 8)
+                
+                Spacer()
+            }  //End of Weapons Rule
+                .background(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
+                .cornerRadius(10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                .shadow(radius: 5)
             
             if self.playerLevel == "誰でもOK！" {
                 
                 HStack {
                     Text("誰でもOK！")
-                        .font(.headline)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
-                        .padding()
+                        .padding(.all, 8)
                     
                     Spacer()
                 } //playerLevelで分岐
@@ -46,14 +78,15 @@ struct TaimanRow: View {
                     .cornerRadius(10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
+                    .shadow(radius: 5)
                 
             } else if self.playerLevel == "初心者同士で！" {
                 
                 HStack {
                     Text("初心者同士で！")
-                        .font(.headline)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
-                        .padding()
+                        .padding(.all, 8)
                     
                     Spacer()
                 } //playerLevelで分岐
@@ -61,13 +94,15 @@ struct TaimanRow: View {
                     .cornerRadius(10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
+                    .shadow(radius: 5)
+                
             } else {
                 
                 HStack {
                     Text("上級者求む！")
-                        .font(.headline)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
-                        .padding()
+                        .padding(.all, 8)
                     
                     Spacer()
                 } //playerLevelで分岐
@@ -75,27 +110,59 @@ struct TaimanRow: View {
                     .cornerRadius(10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
+                    .shadow(radius: 5)
                 
             } //End of playerLevel if statement
             
             HStack {
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(description)
-                        .lineSpacing(3)
+                VStack(alignment: .center, spacing: 0) {
                     
-                    HStack {
-                        Spacer()
-                    }// Spacer用HStack(秀才)
+                    Text("落下ダメ")
+                        .foregroundColor(Color(#colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)))
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                    
+                    Text(fallDamage)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                        .foregroundColor(Color.white)
+                        .padding(.all, 8)
+                    
                 }
+                
+                Spacer()
+                
+                VStack(alignment: .center, spacing: 0) {
+                    
+                    Text("グラップラー")
+                        .foregroundColor(Color(#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)))
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                    
+                    Text(grappler)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                        .foregroundColor(Color.white)
+                        .padding(.all, 8)
+                    
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .center, spacing: 0) {
+                    
+                    Text("回復アイテム")
+                        .foregroundColor(Color(#colorLiteral(red: 0.0001157692242, green: 0.6021736141, blue: 0.1825375916, alpha: 1)))
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                    
+                    Text(healItem)
+                        .font(.custom("NotoSansJP-Bold", size: 17))
+                        .foregroundColor(Color.white)
+                        .padding(.all, 8)
+                    
+                }
+                
                 
             }
             .padding()
-            .background(Color(#colorLiteral(red: 1, green: 0.7143068517, blue: 0.5749579509, alpha: 1)))
-            .cornerRadius(10)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            .padding(.bottom, 10)
+            
             
         } //End of VStack
             .background(Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.6645708476)))
