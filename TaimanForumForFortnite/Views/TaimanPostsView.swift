@@ -18,11 +18,10 @@ struct TaimanPostsView: View {
             ScrollView(showsIndicators: false) {
                 
                 VStack(spacing: 25) {
-                    TaimanRow()
-                    TaimanRow()
-                    TaimanRow()
-                    TaimanRow()
-                    TaimanRow()
+                    TaimanRow(createdAt: "19:58", fortniteId: "Haku", battleMode: "建築バトル", weaponsRule: "青ポンプと紫スカー", playerLevel: "初心者同士で！", fallDamage: "なし", grappler: "あり", healItem: "あり")
+                    TaimanRow(createdAt: "19:56", fortniteId: "GW_Neph", battleMode: "建築バトル", weaponsRule: "青武器のみ", playerLevel: "上級者求む！", fallDamage: "なし", grappler: "あり", healItem: "なし")
+                    TaimanRow(createdAt: "19:49", fortniteId: "vabon", battleMode: "建築バトル", weaponsRule: "話し合って決める", playerLevel: "誰でもOK!", fallDamage: "なし", grappler: "あり", healItem: "あり")
+                    TaimanRow(createdAt: "19:40", fortniteId: "Ninja", battleMode: "ZoneWar", weaponsRule: "青ポンプと紫スカー", playerLevel: "誰でもOK！", fallDamage: "おまかせ", grappler: "おまかせ", healItem: "おまかせ")
                 }
                 
             } //End of Scroll View
@@ -38,11 +37,19 @@ struct TaimanPostsView: View {
 
                     Image("Taiman_For_Fortnite_appIcon").resizable().aspectRatio(contentMode: .fit)})
             .sheet(isPresented: $showingAddTaiman) {
+             
+                if FUser.currentUser() != nil &&
+                    FUser.currentUser()!.onBoarding {
                     
                     AddTaiman()
                     
+                } else if FUser.currentUser() != nil  {
+                    FinishRegistration()
+                } else {
+                    LoginView()
+                }
+                    
             }
-            
         } //End of Navigation View
         
     } //End of View

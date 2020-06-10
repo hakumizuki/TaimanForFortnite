@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0605E624906E9C0016132B /* FinishRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0605E524906E9C0016132B /* FinishRegistration.swift */; };
 		9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC33248981790019BC97 /* AppDelegate.swift */; };
 		9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC35248981790019BC97 /* SceneDelegate.swift */; };
 		9E89DC38248981790019BC97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC37248981790019BC97 /* HomeView.swift */; };
@@ -27,12 +28,19 @@
 		9E89DC6D248EDDFD0019BC97 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC67248EDDF80019BC97 /* NotoSansJP-Regular.otf */; };
 		9E89DC6E248EDDFD0019BC97 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC68248EDDFB0019BC97 /* NotoSansJP-Bold.otf */; };
 		9E89DC6F248EDDFD0019BC97 /* NotoSansJP-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */; };
+		9E89DC73248F16FB0019BC97 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC72248F16FB0019BC97 /* FUser.swift */; };
+		9E89DC75248F19C90019BC97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC74248F19C90019BC97 /* Constants.swift */; };
+		9E89DC77248F22EC0019BC97 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC76248F22EC0019BC97 /* LoginView.swift */; };
+		9E89DC7E248F326A0019BC97 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC7D248F326A0019BC97 /* LottieView.swift */; };
+		9E89DC82248F3D600019BC97 /* lf30_editor_hAbUdI.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */; };
+		9E89DC84248F42880019BC97 /* 782-check-mark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC83248F42880019BC97 /* 782-check-mark-success.json */; };
 		FF233F79575C56531E9424A9 /* Pods_TaimanForumForFortnite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C8CFEBA28973D7E0051C772 /* Pods-TaimanForumForFortnite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaimanForumForFortnite.debug.xcconfig"; path = "Target Support Files/Pods-TaimanForumForFortnite/Pods-TaimanForumForFortnite.debug.xcconfig"; sourceTree = "<group>"; };
 		10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaimanForumForFortnite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0605E524906E9C0016132B /* FinishRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistration.swift; sourceTree = "<group>"; };
 		9E89DC30248981790019BC97 /* TaimanForumForFortnite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaimanForumForFortnite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E89DC33248981790019BC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E89DC35248981790019BC97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,12 @@
 		9E89DC67248EDDF80019BC97 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		9E89DC68248EDDFB0019BC97 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.otf"; sourceTree = "<group>"; };
+		9E89DC72248F16FB0019BC97 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
+		9E89DC74248F19C90019BC97 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9E89DC76248F22EC0019BC97 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9E89DC7D248F326A0019BC97 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_hAbUdI.json; sourceTree = "<group>"; };
+		9E89DC83248F42880019BC97 /* 782-check-mark-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "782-check-mark-success.json"; sourceTree = "<group>"; };
 		C1CF840D35C60FAE53FCF225 /* Pods-TaimanForumForFortnite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaimanForumForFortnite.release.xcconfig"; path = "Target Support Files/Pods-TaimanForumForFortnite/Pods-TaimanForumForFortnite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +113,7 @@
 		9E89DC32248981790019BC97 /* TaimanForumForFortnite */ = {
 			isa = PBXGroup;
 			children = (
+				9E89DC7A248F31A90019BC97 /* Animations */,
 				9E89DC63248EDB160019BC97 /* Fonts */,
 				9E89DC33248981790019BC97 /* AppDelegate.swift */,
 				9E89DC35248981790019BC97 /* SceneDelegate.swift */,
@@ -131,6 +146,8 @@
 				9E89DC4C248A71C00019BC97 /* TaimanListsView.swift */,
 				9E89DC50248A71ED0019BC97 /* UserSettingsView.swift */,
 				9E89DC61248D7B220019BC97 /* AddTaiman.swift */,
+				9E89DC76248F22EC0019BC97 /* LoginView.swift */,
+				9E0605E524906E9C0016132B /* FinishRegistration.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				9E89DC57248A9D9A0019BC97 /* Taiman.swift */,
+				9E89DC72248F16FB0019BC97 /* FUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				9E89DC5A248AA3B10019BC97 /* FirebaseReference.swift */,
+				9E89DC74248F19C90019BC97 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -155,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */,
+				9E89DC7D248F326A0019BC97 /* LottieView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -170,6 +190,15 @@
 				9E89DC69248EDDFD0019BC97 /* NotoSansJP-Thin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9E89DC7A248F31A90019BC97 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */,
+				9E89DC83248F42880019BC97 /* 782-check-mark-success.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		FB6053649AB6B99FC0866CDA /* Pods */ = {
@@ -246,9 +275,11 @@
 				9E89DC55248A787E0019BC97 /* GoogleService-Info.plist in Resources */,
 				9E89DC6F248EDDFD0019BC97 /* NotoSansJP-Thin.otf in Resources */,
 				9E89DC6D248EDDFD0019BC97 /* NotoSansJP-Regular.otf in Resources */,
+				9E89DC82248F3D600019BC97 /* lf30_editor_hAbUdI.json in Resources */,
 				9E89DC6E248EDDFD0019BC97 /* NotoSansJP-Bold.otf in Resources */,
 				9E89DC6B248EDDFD0019BC97 /* NotoSansJP-Light.otf in Resources */,
 				9E89DC4B248A70650019BC97 /* Assets.xcassets in Resources */,
+				9E89DC84248F42880019BC97 /* 782-check-mark-success.json in Resources */,
 				9E89DC6C248EDDFD0019BC97 /* NotoSansJP-Medium.otf in Resources */,
 				9E89DC3D2489817E0019BC97 /* Preview Assets.xcassets in Resources */,
 			);
@@ -305,14 +336,19 @@
 			files = (
 				9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */,
 				9E89DC5B248AA3B10019BC97 /* FirebaseReference.swift in Sources */,
+				9E89DC7E248F326A0019BC97 /* LottieView.swift in Sources */,
 				9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */,
 				9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */,
 				9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */,
+				9E89DC73248F16FB0019BC97 /* FUser.swift in Sources */,
 				9E89DC4D248A71C00019BC97 /* TaimanListsView.swift in Sources */,
 				9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */,
 				9E89DC62248D7B220019BC97 /* AddTaiman.swift in Sources */,
 				9E89DC51248A71ED0019BC97 /* UserSettingsView.swift in Sources */,
+				9E89DC77248F22EC0019BC97 /* LoginView.swift in Sources */,
 				9E89DC38248981790019BC97 /* HomeView.swift in Sources */,
+				9E89DC75248F19C90019BC97 /* Constants.swift in Sources */,
+				9E0605E624906E9C0016132B /* FinishRegistration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"TaimanForumForFortnite/Preview Content\"";
 				DEVELOPMENT_TEAM = VF477Z9U69;
 				ENABLE_PREVIEWS = YES;
@@ -472,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"TaimanForumForFortnite/Preview Content\"";
 				DEVELOPMENT_TEAM = VF477Z9U69;
 				ENABLE_PREVIEWS = YES;

@@ -11,11 +11,12 @@ import SwiftUI
 
 struct Taiman: Identifiable {
     var id: String
-    var createdAt: String
+    var createdAt: Date
     var ownerId: String
     var playerLevel: String
     var weaponsRule: String
     var fallDamage: String
     var grappler: String
     var healItem: String
+    var isEntried: Bool
 }
