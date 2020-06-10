@@ -10,6 +10,10 @@ import SwiftUI
 
 struct AddTaiman: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State private var showingAlert = false
+    
     @State private var selectedBattleMode = 0
     @State private var selectedPlayerLevel = 0
     @State private var selectedWeaponsRule = 0
@@ -148,7 +152,24 @@ struct AddTaiman: View {
                 //仮置き
                 Button(action: {
                     
-                    // Add to Firestore
+                    FirebaseReference(.Taiman).addDocument(data: [
+                        kID: UUID().uuidString,
+                        kCREATEDAT: Date(),
+                        kOWNERID: FUser.currentUser()!.fortniteId,
+                        kPLAYERLEVEL: self.playerLevel[self.selectedPlayerLevel],
+                        kWEAPONSRULE: self.weaponsRule[self.selectedWeaponsRule],
+                        kFALLDAMAGE: self.fallDamage[self.selectedFallDamage],
+                        kGRAPPLER: self.grappler[self.selectedGrappler],
+                        kHEALITEM: self.healItem[self.selectedHealItem]
+                    ]) { error in
+                        if error != nil {
+                            print("Error adding Taiman to Firestore: ", error!.localizedDescription)
+                            self.showingAlert.toggle()
+                        } else {
+                            print("added Taiman successfully.")
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                     
                 }) {
                     Text("1v1を募集する")
@@ -159,6 +180,9 @@ struct AddTaiman: View {
                 .background(Color(#colorLiteral(red: 0.06126286834, green: 0.1292148232, blue: 0.2266941071, alpha: 1)))
                 .cornerRadius(10)
                 .padding(.bottom, 20)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("サーバーが混雑しています！"), message: Text("解消するまでのあいだ、エイムや建築を練習してお待ちください！"), dismissButton: .default(Text("しかたがないなあ！")))
+                }
             } //End of VStack
             
         } //End of Scroll View
