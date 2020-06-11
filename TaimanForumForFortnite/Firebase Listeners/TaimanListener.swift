@@ -11,16 +11,16 @@ import Firebase
 
 class TaimanListener: ObservableObject {
     
-    @Published var taimans: [Taiman] = []
+    @Published var taimans: [Taiman]!
     
     init() {
-        downloadRows()
+        downloadTaimans()
     }
     
-    func downloadRows() {
+    func downloadTaimans() {
         taimans = []
         
-        FirebaseReference(.Taiman).order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
+        FirebaseReference(.Taiman).order(by: "createdAt", descending: true).addSnapshotListener { (snapshot, error) in
             
             guard let snapshot = snapshot else { return }
             

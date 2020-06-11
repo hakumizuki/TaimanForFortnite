@@ -27,7 +27,7 @@ struct TaimanPostsView: View {
                 ScrollView(showsIndicators: false) {
                     
                     VStack(spacing: 25) {
-                        ForEach(taimanListener.taimans, id: \.self.id) { taiman in
+                        ForEach(self.taimanListener.taimans ?? [], id: \.self.id) { taiman in
                             TaimanRow(taiman: taiman)
                         }
                     }
