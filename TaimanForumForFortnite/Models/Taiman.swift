@@ -13,6 +13,7 @@ struct Taiman: Identifiable {
     var id: String
     var createdAt: Date
     var ownerId: String
+    var battleMode: String
     var playerLevel: String
     var weaponsRule: String
     var fallDamage: String

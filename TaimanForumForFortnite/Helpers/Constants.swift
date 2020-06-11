@@ -14,11 +14,13 @@ public let userDefaults = UserDefaults.standard
 public let kID = "id"
 public let kCREATEDAT = "createdAt"
 public let kOWNERID = "ownerId"
+public let kBATTLEMODE = "battleMode"
 public let kPLAYERLEVEL = "playerLevel"
 public let kWEAPONSRULE = "weaponsRule"
 public let kFALLDAMAGE = "fallDamage"
 public let kGRAPPLER = "grappler"
 public let kHEALITEM = "healItem"
+public let kISENTRIED = "isEntried"
 
 // FUser
 

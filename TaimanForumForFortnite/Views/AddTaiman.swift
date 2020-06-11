@@ -156,11 +156,13 @@ struct AddTaiman: View {
                         kID: UUID().uuidString,
                         kCREATEDAT: Date(),
                         kOWNERID: FUser.currentUser()!.fortniteId,
+                        kBATTLEMODE: self.battleMode[self.selectedBattleMode],
                         kPLAYERLEVEL: self.playerLevel[self.selectedPlayerLevel],
                         kWEAPONSRULE: self.weaponsRule[self.selectedWeaponsRule],
                         kFALLDAMAGE: self.fallDamage[self.selectedFallDamage],
                         kGRAPPLER: self.grappler[self.selectedGrappler],
-                        kHEALITEM: self.healItem[self.selectedHealItem]
+                        kHEALITEM: self.healItem[self.selectedHealItem],
+                        kISENTRIED: false
                     ]) { error in
                         if error != nil {
                             print("Error adding Taiman to Firestore: ", error!.localizedDescription)

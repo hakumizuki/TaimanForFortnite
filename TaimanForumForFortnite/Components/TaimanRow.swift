@@ -15,16 +15,7 @@ struct TaimanRow: View {
     // for sheet
     @State private var showLogin = false
     
-    var createdAt: String = "19:35"
-    var fortniteId: String = "Haku_Mizuki"
-    var battleMode: String = "建築バトル"
-    var weaponsRule: String = "青ポンプと紫スカー"
-    var playerLevel: String = "上級者求む！"
-    var fallDamage: String = "なし"
-    var grappler: String = "あり"
-    var healItem: String = "おまかせ"
-    
-    
+    var taiman: Taiman
     
     var body: some View {
         
@@ -33,10 +24,10 @@ struct TaimanRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 
                 HStack {
-                    Text(createdAt)
+                    Text(getDate(from: taiman.createdAt))
                         .foregroundColor(Color.white)
                     
-                    Text("FortniteID: \n\(String(fortniteId.prefix(3)))***********")
+                    Text("FortniteID: \n\(String(taiman.ownerId.prefix(3)))***********")
                         .padding(.leading, 10)
                         .padding(.trailing, 60)
                         .font(.custom("NotoSansJP-Bold", size: 17))
@@ -44,7 +35,7 @@ struct TaimanRow: View {
                     .padding()
                 
                 HStack {
-                    Text("\(battleMode)で勝負")
+                    Text("\(taiman.battleMode)で勝負")
                         .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
                         .padding(.all, 8)
@@ -58,7 +49,7 @@ struct TaimanRow: View {
                     .shadow(radius: 5)
                 
                 HStack {
-                    Text(weaponsRule)
+                    Text(taiman.weaponsRule)
                         .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
                         .padding(.all, 8)
@@ -71,7 +62,7 @@ struct TaimanRow: View {
                     .padding(.trailing, 10)
                     .shadow(radius: 5)
                 
-                if self.playerLevel == "誰でもOK！" {
+                if taiman.playerLevel == "誰でもOK！" {
                     
                     HStack {
                         Text("誰でもOK！")
@@ -87,7 +78,7 @@ struct TaimanRow: View {
                         .padding(.trailing, 10)
                         .shadow(radius: 5)
                     
-                } else if self.playerLevel == "初心者同士で！" {
+                } else if taiman.playerLevel == "初心者同士で！" {
                     
                     HStack {
                         Text("初心者同士で！")
@@ -129,7 +120,7 @@ struct TaimanRow: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)))
                             .font(.custom("NotoSansJP-Bold", size: 17))
                         
-                        Text(fallDamage)
+                        Text(taiman.fallDamage)
                             .font(.custom("NotoSansJP-Bold", size: 17))
                             .foregroundColor(Color.white)
                             .padding(.all, 8)
@@ -144,7 +135,7 @@ struct TaimanRow: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)))
                             .font(.custom("NotoSansJP-Bold", size: 17))
                         
-                        Text(grappler)
+                        Text(taiman.grappler)
                             .font(.custom("NotoSansJP-Bold", size: 17))
                             .foregroundColor(Color.white)
                             .padding(.all, 8)
@@ -159,7 +150,7 @@ struct TaimanRow: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.0001157692242, green: 0.6021736141, blue: 0.1825375916, alpha: 1)))
                             .font(.custom("NotoSansJP-Bold", size: 17))
                         
-                        Text(healItem)
+                        Text(taiman.healItem)
                             .font(.custom("NotoSansJP-Bold", size: 17))
                             .foregroundColor(Color.white)
                             .padding(.all, 8)
@@ -276,6 +267,14 @@ struct TaimanRow: View {
 
 struct TaimanRow_Previews: PreviewProvider {
     static var previews: some View {
-        TaimanRow()
+        TaimanRow(taiman: Taiman(id: "test", createdAt: Date(), ownerId: "haku_mizuki", battleMode: "ZoneWar", playerLevel: "誰でもOK！", weaponsRule: "話し合って決める", fallDamage: "なし", grappler: "あり", healItem: "あり", isEntried: false))
     }
+}
+
+func getDate(from createdAt: Date) -> String{
+    let time = createdAt
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "HH:mm"
+    let stringDate = timeFormatter.string(from: time)
+    return stringDate
 }
