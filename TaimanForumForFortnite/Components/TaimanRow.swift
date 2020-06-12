@@ -35,7 +35,7 @@ struct TaimanRow: View {
                     .padding()
                 
                 HStack {
-                    Text("\(taiman.battleMode)で勝負")
+                    Text("対戦モード: \(taiman.battleMode)")
                         .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
                         .padding(.all, 8)
@@ -49,7 +49,7 @@ struct TaimanRow: View {
                     .shadow(radius: 5)
                 
                 HStack {
-                    Text(taiman.weaponsRule)
+                    Text("武器ルール: \(taiman.weaponsRule)")
                         .font(.custom("NotoSansJP-Bold", size: 17))
                         .foregroundColor(Color.white)
                         .padding(.all, 8)
@@ -147,7 +147,7 @@ struct TaimanRow: View {
                     VStack(alignment: .center, spacing: 0) {
                         
                         Text("回復アイテム")
-                            .foregroundColor(Color(#colorLiteral(red: 0.0001157692242, green: 0.6021736141, blue: 0.1825375916, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0, green: 0.6575947753, blue: 0.2079369034, alpha: 1)))
                             .font(.custom("NotoSansJP-Bold", size: 17))
                         
                         Text(taiman.healItem)

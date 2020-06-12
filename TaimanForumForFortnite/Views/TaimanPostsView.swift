@@ -46,7 +46,7 @@ struct TaimanPostsView: View {
                             
                             AddTaiman()
                             
-                        } else if FUser.currentUser() != nil  {
+                        } else if FUser.currentUser() != nil {
                             FinishRegistration()
                         } else {
                             LoginView()

@@ -88,7 +88,7 @@ class FUser {
             if error == nil {
                 
                 authDataResult!.user.sendEmailVerification { (error) in
-                    print("verification error is: ", error?.localizedDescription)
+                    print("verification error is: ", error?.localizedDescription ?? "UNKNOWN")
                 }
             }
         }
@@ -163,10 +163,12 @@ func updateCurrentUser(withValues: [String: Any], completion: @escaping (_ error
         
         FirebaseReference(.User).document(FUser.currentId()).updateData(withValues) { (error) in
             
-            completion(error)
-            if error != nil {
+            if error == nil {
                 saveUserLocally(userDictionary: userObject)
+            } else {
+                print("Error updating current user:", error!.localizedDescription)
             }
+            completion(error)
         }
     }
 }

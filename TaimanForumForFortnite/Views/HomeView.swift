@@ -27,10 +27,10 @@ struct HomeView: View {
                         Text("1v1リスト")
                     }
                 
-                Text("User Settings")
+                FinishRegistration()
                     .tabItem {
                         Image(systemName: "person.fill")
-                        Text("ユーザー設定")
+                        Text("ID設定")
                     }
                 
             } //End of Tab View
