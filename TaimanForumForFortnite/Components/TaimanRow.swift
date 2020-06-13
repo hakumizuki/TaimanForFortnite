@@ -19,7 +19,7 @@ struct TaimanRow: View {
     
     var bodyBorderColor: Color {
         if self.taiman.ownerId == FUser.currentUser()?.fortniteId {
-            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8040186216))
+            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8761772261))
         } else {
             return Color(#colorLiteral(red: 0.4077987218, green: 0.9042493395, blue: 0.9042493395, alpha: 0))
         }
@@ -27,9 +27,9 @@ struct TaimanRow: View {
     
     var bodyColor: Color {
         if self.isEntried {
-            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8040186216))
+            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8761772261))
         } else {
-            return Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.6645708476))
+            return Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.8831068065))
         }
     }
     

@@ -22,7 +22,13 @@ struct TaimanPostsView: View {
                 
                 Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 1))
                 
-                Image("Taiman_For_Fortnite_appIcon").resizable().aspectRatio(contentMode: .fit)
+                VStack(alignment: .center) {
+                    oneVone()
+                        .padding(.top, -50)
+                    Spacer()
+                    forFortnite()
+                        .padding(.bottom, -30)
+                }
                 
                 ScrollView(showsIndicators: false) {
                     
@@ -62,5 +68,50 @@ struct TaimanPostsView: View {
 struct TaimanPostsView_Previews: PreviewProvider {
     static var previews: some View {
         TaimanPostsView()
+    }
+}
+
+struct oneVone: View {
+    var body: some View {
+        
+        VStack(alignment: .center, spacing: 0) {
+            Image("Taiman_For_Fortnite_appIcon")
+                .resizable()
+                .frame(width: 300, height: 300, alignment: .center)
+            
+            Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 1))
+                .frame(width: 300, height: 100, alignment: .center)
+                .padding(.top, -100)
+        }
+        
+    }
+}
+
+struct oneVone_Previews: PreviewProvider {
+    static var previews: some View {
+        oneVone()
+    }
+}
+
+
+struct forFortnite: View {
+    var body: some View {
+        
+        ZStack {
+            Image("Taiman_For_Fortnite_appIcon")
+            .resizable()
+            .frame(width: 300, height: 300, alignment: .center)
+            
+            Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 1))
+                .frame(width: 300, height: 150, alignment: .center)
+                .padding(.bottom, 105)
+        }
+        
+    }
+}
+
+struct forFortnite_Previews: PreviewProvider {
+    static var previews: some View {
+        forFortnite()
     }
 }

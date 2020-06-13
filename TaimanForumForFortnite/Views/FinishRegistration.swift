@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FinishRegistration: View {
     
-    @State var fortniteId = ""
+    @State var fortniteId = FUser.currentUser()?.fortniteId ?? ""
     
     @Environment(\.presentationMode) var presentationMode
     
