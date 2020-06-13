@@ -1,6 +1,6 @@
 # TaimanForFortnite(1v1forFortnite)
 
-## 使用言語、技術 techs and language used
+## 使用言語、技術 Techs and language used
 - 言語とツール Language and tools
  Swift5
  Xcode11.5
@@ -26,3 +26,8 @@
  
 - UI/UX見直し
  カスタムローディングアイコン導入予定
+ 
+- Tips導入
+ おすすめクリエイティブ島や、プレイ、技術解説動画の掲載
+ 
+- チュートリアル導入
