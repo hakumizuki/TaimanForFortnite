@@ -17,6 +17,22 @@ struct TaimanRow: View {
     
     var taiman: Taiman
     
+    var bodyBorderColor: Color {
+        if self.taiman.ownerId == FUser.currentUser()?.fortniteId {
+            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8040186216))
+        } else {
+            return Color(#colorLiteral(red: 0.4077987218, green: 0.9042493395, blue: 0.9042493395, alpha: 0))
+        }
+    }
+    
+    var bodyColor: Color {
+        if self.isEntried {
+            return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8040186216))
+        } else {
+            return Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.6645708476))
+        }
+    }
+    
     var body: some View {
         
         VStack {
@@ -27,10 +43,21 @@ struct TaimanRow: View {
                     Text(getDate(from: taiman.createdAt))
                         .foregroundColor(Color.white)
                     
-                    Text("FortniteID: \n\(String(taiman.ownerId.prefix(3)))***********")
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("FortniteID:")
                         .padding(.leading, 10)
-                        .padding(.trailing, 60)
                         .font(.custom("NotoSansJP-Bold", size: 17))
+                        .foregroundColor(Color.white)
+                        
+                        Text("\(String(taiman.ownerId.prefix(3)))**********")
+                            .padding(.leading, 10)
+                            .font(.custom("NotoSansJP-Bold", size: 17))
+                            .foregroundColor(Color.black)
+                        Divider()
+                    }
+                    
+                    
+                    
                 } //End of HStack with time and ID
                     .padding()
                 
@@ -42,7 +69,10 @@ struct TaimanRow: View {
                     
                     Spacer()
                 }  //End of Battle Mode
-                    .background(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)).opacity(0.7), lineWidth: 5)
+                    )
                     .cornerRadius(10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
@@ -56,7 +86,10 @@ struct TaimanRow: View {
                     
                     Spacer()
                 }  //End of Weapons Rule
-                    .background(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)).opacity(0.7), lineWidth: 5)
+                    )
                     .cornerRadius(10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
@@ -72,7 +105,10 @@ struct TaimanRow: View {
                         
                         Spacer()
                     } //playerLevelで分岐
-                        .background(Color(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)).opacity(0.7), lineWidth: 5)
+                        )
                         .cornerRadius(10)
                         .padding(.leading, 10)
                         .padding(.trailing, 10)
@@ -88,7 +124,10 @@ struct TaimanRow: View {
                         
                         Spacer()
                     } //playerLevelで分岐
-                        .background(Color(#colorLiteral(red: 1, green: 0.6519264126, blue: 0.8248052621, alpha: 1)))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(#colorLiteral(red: 1, green: 0.6519264126, blue: 0.8248052621, alpha: 1)).opacity(0.7), lineWidth: 5)
+                        )
                         .cornerRadius(10)
                         .padding(.leading, 10)
                         .padding(.trailing, 10)
@@ -104,7 +143,10 @@ struct TaimanRow: View {
                         
                         Spacer()
                     } //playerLevelで分岐
-                        .background(Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)).opacity(0.7), lineWidth: 5)
+                        )
                         .cornerRadius(10)
                         .padding(.leading, 10)
                         .padding(.trailing, 10)
@@ -163,7 +205,11 @@ struct TaimanRow: View {
                 
                 
             } //End of VStack
-                .background(Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.6645708476)))
+                .background(self.bodyColor)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(self.bodyBorderColor, lineWidth: 6)
+                )
                 .cornerRadius(10)
                 .shadow(radius: 10)
                 .padding(.top)
@@ -174,8 +220,9 @@ struct TaimanRow: View {
             //エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！
             // エントリー済みの表記については、currentUserと比較して他のユーザーがエントリーしました。
             // みたいな表記にすべきでしょう。アニメーションもなし。または、クロスマーク。
-            
-            if self.isEntried {
+            if self.taiman.ownerId == FUser.currentUser()?.fortniteId {
+                // なし
+           } else if self.isEntried {
                 HStack {
                     Spacer()
                 
