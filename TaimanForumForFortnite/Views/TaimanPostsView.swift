@@ -12,6 +12,10 @@ struct TaimanPostsView: View {
     
     @ObservedObject var taimanListener = TaimanListener()
     
+    var taimans: [Taiman] {
+        .init(self.taimanListener.taimans)
+    }
+    
     @State private var showingAddTaiman = false
     
     var body: some View {
@@ -30,35 +34,58 @@ struct TaimanPostsView: View {
                         .padding(.bottom, -30)
                 }
                 
-                ScrollView(showsIndicators: false) {
-                    
-                    VStack(spacing: 25) {
-                        ForEach(self.taimanListener.taimans ?? [], id: \.self.id) { taiman in
-                            TaimanRow(taiman: taiman)
-                        }
+                if self.taimans == [] {
+                    ScrollView(showsIndicators: false) {
+                        LottieView(filename: "lf30_editor_ExugZy", loopMode: .loop)
+                            .frame(width: 90, height: 90, alignment: .center)
+                    } //End of Scroll View
+                        .navigationBarTitle("1v1 掲示板", displayMode: .inline)
+                        .navigationBarItems(trailing:
+                            
+                            Button(action: {
+                                self.showingAddTaiman.toggle()
+                            }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
+                        .sheet(isPresented: $showingAddTaiman) {
+                            
+                            if FUser.currentUser() != nil &&
+                                FUser.currentUser()!.onBoarding {
+                                
+                                AddTaiman()
+                                
+                            } else if FUser.currentUser() != nil {
+                                FinishRegistration()
+                            } else {
+                                LoginView()
+                            }
                     }
-                    
-                } //End of Scroll View
-                    .navigationBarTitle("1v1 掲示板", displayMode: .inline)
-                    .navigationBarItems(trailing:
-                        
-                        Button(action: {
-                            self.showingAddTaiman.toggle()
-                        }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
-                    .sheet(isPresented: $showingAddTaiman) {
-                        
-                        if FUser.currentUser() != nil &&
-                            FUser.currentUser()!.onBoarding {
-                            
-                            AddTaiman()
-                            
-                        } else if FUser.currentUser() != nil {
-                            FinishRegistration()
-                        } else {
-                            LoginView()
+                } else {
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 25) {
+                            ForEach(self.taimans, id: \.self.id) { taiman in
+                                TaimanRow(taiman: taiman)
+                            }
                         }
+                    } //End of Scroll View
+                        .navigationBarTitle("1v1 掲示板", displayMode: .inline)
+                        .navigationBarItems(trailing:
+                            
+                            Button(action: {
+                                self.showingAddTaiman.toggle()
+                            }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
+                        .sheet(isPresented: $showingAddTaiman) {
+                            
+                            if FUser.currentUser() != nil &&
+                                FUser.currentUser()!.onBoarding {
+                                
+                                AddTaiman()
+                                
+                            } else if FUser.currentUser() != nil {
+                                FinishRegistration()
+                            } else {
+                                LoginView()
+                            }
+                    }
                 }
-                
             }
         } //End of Navigation View
         

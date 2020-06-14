@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Taiman: Identifiable {
+struct Taiman: Identifiable, Equatable {
     var id: String
     var createdAt: Date
     var ownerId: String

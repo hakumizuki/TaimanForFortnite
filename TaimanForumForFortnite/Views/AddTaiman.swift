@@ -45,7 +45,7 @@ struct AddTaiman: View {
                     
                     Section(header: Text("対戦モード").foregroundColor(Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1))).font(.custom("NotoSansJP-Bold", size: 17))) {
                         
-                        Picker(selection: $selectedBattleMode, label: Text("")) {
+                        Picker(selection: $selectedBattleMode, label: Image(systemName: "arrowtriangle.right.fill").padding(.leading, 5).foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))) {
                             
                             ForEach(0 ..< battleMode.count) {
                                 
@@ -62,7 +62,7 @@ struct AddTaiman: View {
                     
                     Section(header: Text("武器ルール").foregroundColor(Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))).font(.custom("NotoSansJP-Bold", size: 17))) {
                         
-                        Picker(selection: $selectedWeaponsRule, label: Text("")) {
+                        Picker(selection: $selectedWeaponsRule, label: Image(systemName: "arrowtriangle.right.fill").padding(.leading, 5).foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))) {
                             
                             ForEach(0 ..< weaponsRule.count) {
                                 

@@ -35,6 +35,7 @@
 		9E89DC7E248F326A0019BC97 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC7D248F326A0019BC97 /* LottieView.swift */; };
 		9E89DC82248F3D600019BC97 /* lf30_editor_hAbUdI.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */; };
 		9E89DC84248F42880019BC97 /* 782-check-mark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89DC83248F42880019BC97 /* 782-check-mark-success.json */; };
+		9ED0BF622496BBA200137803 /* lf30_editor_ExugZy.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ED0BF612496BBA200137803 /* lf30_editor_ExugZy.json */; };
 		FF233F79575C56531E9424A9 /* Pods_TaimanForumForFortnite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		9E89DC7D248F326A0019BC97 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_hAbUdI.json; sourceTree = "<group>"; };
 		9E89DC83248F42880019BC97 /* 782-check-mark-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "782-check-mark-success.json"; sourceTree = "<group>"; };
+		9ED0BF612496BBA200137803 /* lf30_editor_ExugZy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_ExugZy.json; sourceTree = "<group>"; };
 		C1CF840D35C60FAE53FCF225 /* Pods-TaimanForumForFortnite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaimanForumForFortnite.release.xcconfig"; path = "Target Support Files/Pods-TaimanForumForFortnite/Pods-TaimanForumForFortnite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 			children = (
 				9E89DC81248F3D5F0019BC97 /* lf30_editor_hAbUdI.json */,
 				9E89DC83248F42880019BC97 /* 782-check-mark-success.json */,
+				9ED0BF612496BBA200137803 /* lf30_editor_ExugZy.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				9E89DC55248A787E0019BC97 /* GoogleService-Info.plist in Resources */,
 				9E89DC6F248EDDFD0019BC97 /* NotoSansJP-Thin.otf in Resources */,
 				9E89DC6D248EDDFD0019BC97 /* NotoSansJP-Regular.otf in Resources */,
+				9ED0BF622496BBA200137803 /* lf30_editor_ExugZy.json in Resources */,
 				9E89DC82248F3D600019BC97 /* lf30_editor_hAbUdI.json in Resources */,
 				9E89DC6E248EDDFD0019BC97 /* NotoSansJP-Bold.otf in Resources */,
 				9E89DC6B248EDDFD0019BC97 /* NotoSansJP-Light.otf in Resources */,

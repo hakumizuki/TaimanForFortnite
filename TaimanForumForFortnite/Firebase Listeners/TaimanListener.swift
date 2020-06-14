@@ -11,7 +11,7 @@ import Firebase
 
 class TaimanListener: ObservableObject {
     
-    @Published var taimans: [Taiman]!
+    @Published var taimans: [Taiman] = []
     
     init() {
         downloadTaimans()
