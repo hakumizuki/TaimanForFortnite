@@ -67,6 +67,14 @@ struct TaimanPostsView: View {
                         }
                     } //End of Scroll View
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
+                        .navigationBarItems(leading:
+                            Button(action: {
+                                FUser.logOutUser { (error) in
+                                    print("Error loging out user: ", error?.localizedDescription ?? "nothing")
+                                }
+                            }, label: {
+                                Text("ログアウト")
+                            }))
                         .navigationBarItems(trailing:
                             
                             Button(action: {
@@ -86,7 +94,7 @@ struct TaimanPostsView: View {
                             }
                     }
                 }
-            }
+            } //End of Scroll View
         } //End of Navigation View
         
     } //End of View

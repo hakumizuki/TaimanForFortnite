@@ -66,7 +66,6 @@ struct LoginView: View {
                         Spacer()
                         
                         Button(action: {
-                            
                             self.resetPassword()
                         }, label: {
                             Text("なんてこった、パスワードを忘れた")
@@ -154,7 +153,17 @@ struct LoginView: View {
     }
     
     private func resetPassword() {
-        
+        if self.email != "" {
+            FUser.resetPassword(email: email) { (error) in
+                if error != nil {
+                    print("Error sending reset password: ", error!.localizedDescription)
+                }
+                
+                print("メールをご確認ください！")
+            }
+        } else {
+            
+        }
     }
 }
 

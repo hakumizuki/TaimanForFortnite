@@ -93,6 +93,24 @@ class FUser {
             }
         }
     }
+    
+    class func resetPassword(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            completion(error)
+        }
+    }
+    
+    class func logOutUser(completion: @escaping (_ error: Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            
+            userDefaults.removeObject(forKey: kCURRENTUSER)
+            userDefaults.synchronize()
+            completion(nil)
+        } catch let error {
+            completion(error)
+        }
+    }
 }
 
 func userDictionaryFrom(user: FUser) -> [String: Any] {
