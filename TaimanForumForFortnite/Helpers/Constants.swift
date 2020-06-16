@@ -21,6 +21,7 @@ public let kFALLDAMAGE = "fallDamage"
 public let kGRAPPLER = "grappler"
 public let kHEALITEM = "healItem"
 public let kISENTRIED = "isEntried"
+public let kENTRIEDPLAYER = "entriedPlayer"
 
 // FUser
 

@@ -262,14 +262,24 @@ struct TaimanRow: View {
                     
                     Button(action: {
                         
-                        // Entry (+ Entry Animation)
+                        // Entry
                         if FUser.currentUser() != nil &&
                             FUser.currentUser()!.onBoarding {
                             
-                            // 仮置き 本来はfirestoreで管理
-                            self.isEntried = true
-                            // animation on tabbar prompting to go list
-                            
+                            FirebaseReference(.Taiman).document(FUser.currentId()).updateData([kISENTRIED : true, kENTRIEDPLAYER: FUser.currentId()]) { (error) in
+                                
+                                if error != nil {
+                                    print("エントリーできませんでした。")
+                                } else {
+                                    updateCurrentUser(withValues: [kISPLAYING: true]) { (error) in
+                                        if error != nil {
+                                            print("ユーザーを更新できませんでした。(isPlaying: true)")
+                                        } else {
+                                            // TODO: animation on tabbar prompting to go list
+                                        }
+                                    }
+                                }
+                            }
                         } else {
                             self.showLogin.toggle()
                         }
@@ -314,7 +324,7 @@ struct TaimanRow: View {
 
 struct TaimanRow_Previews: PreviewProvider {
     static var previews: some View {
-        TaimanRow(taiman: Taiman(id: "test", createdAt: Date(), ownerId: "haku_mizuki", battleMode: "ZoneWar", playerLevel: "誰でもOK！", weaponsRule: "話し合って決める", fallDamage: "なし", grappler: "あり", healItem: "あり", isEntried: false))
+        TaimanRow(taiman: Taiman(id: "test", createdAt: Date(), ownerId: "haku_mizuki", battleMode: "ZoneWar", playerLevel: "誰でもOK！", weaponsRule: "話し合って決める", fallDamage: "なし", grappler: "あり", healItem: "あり", isEntried: false, entriedPlayer: ""))
     }
 }
 

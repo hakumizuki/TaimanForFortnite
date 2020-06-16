@@ -41,7 +41,7 @@ class TaimanListener: ObservableObject {
             
             let timestamp = taimanData[kCREATEDAT] as! Timestamp
             
-            allTaimans.append(Taiman(id: taimanData[kID] as? String ?? UUID().uuidString, createdAt: timestamp.dateValue(), ownerId: taimanData[kOWNERID] as? String ?? "", battleMode: taimanData[kBATTLEMODE] as? String ?? "", playerLevel: taimanData[kPLAYERLEVEL] as? String ?? "", weaponsRule: taimanData[kWEAPONSRULE] as? String ?? "", fallDamage: taimanData[kFALLDAMAGE] as? String ?? "", grappler: taimanData[kGRAPPLER] as? String ?? "", healItem: taimanData[kHEALITEM] as? String ?? "", isEntried: taimanData[kISENTRIED] as? Bool ?? false))
+            allTaimans.append(Taiman(id: taimanData[kID] as? String ?? UUID().uuidString, createdAt: timestamp.dateValue(), ownerId: taimanData[kOWNERID] as? String ?? "", battleMode: taimanData[kBATTLEMODE] as? String ?? "", playerLevel: taimanData[kPLAYERLEVEL] as? String ?? "", weaponsRule: taimanData[kWEAPONSRULE] as? String ?? "", fallDamage: taimanData[kFALLDAMAGE] as? String ?? "", grappler: taimanData[kGRAPPLER] as? String ?? "", healItem: taimanData[kHEALITEM] as? String ?? "", isEntried: taimanData[kISENTRIED] as? Bool ?? false, entriedPlayer: taimanData[kENTRIEDPLAYER] as? String ?? ""))
         }
         
         return allTaimans

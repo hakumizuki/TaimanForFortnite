@@ -20,4 +20,5 @@ struct Taiman: Identifiable, Equatable {
     var grappler: String
     var healItem: String
     var isEntried: Bool
+    var entriedPlayer: String
 }

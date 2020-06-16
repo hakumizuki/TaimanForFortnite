@@ -162,7 +162,8 @@ struct AddTaiman: View {
                         kFALLDAMAGE: self.fallDamage[self.selectedFallDamage],
                         kGRAPPLER: self.grappler[self.selectedGrappler],
                         kHEALITEM: self.healItem[self.selectedHealItem],
-                        kISENTRIED: false
+                        kISENTRIED: false,
+                        kENTRIEDPLAYER: ""
                     ]) { error in
                         if error != nil {
                             print("Error adding Taiman to Firestore: ", error!.localizedDescription)
