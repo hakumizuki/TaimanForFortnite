@@ -173,6 +173,13 @@ struct AddTaiman: View {
                         }
                     }
                     
+                    // ユーザーは募集中
+                    updateCurrentUser(withValues: [kISRECRUITING: true]) { (error) in
+                        if error != nil {
+                            print("募集できませんでした。時間を開けて再度お試しください。")
+                        }
+                    }
+                    
                 }) {
                     Text("1v1を募集する")
                 }

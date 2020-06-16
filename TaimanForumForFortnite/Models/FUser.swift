@@ -12,10 +12,10 @@ import FirebaseAuth
 class FUser {
     let id: String
     var email: String
-    
     var fortniteId: String
-    
     var onBoarding: Bool
+    var isPlaying: Bool
+    var isRecruiting: Bool
     
     init(_id: String, _email: String, _fortniteId: String) {
         id = _id
@@ -23,6 +23,8 @@ class FUser {
         fortniteId = _fortniteId
         
         onBoarding = false
+        isPlaying = false
+        isRecruiting = false
     }
     
     init(_ dictionary: NSDictionary) {
@@ -30,6 +32,8 @@ class FUser {
         email = dictionary[kEMAIL] as? String ?? ""
         fortniteId = dictionary[kFORTNITEID] as? String ?? ""
         onBoarding = dictionary[kONBOARDING] as? Bool ?? false
+        isPlaying = dictionary[kISPLAYING] as? Bool ?? false
+        isRecruiting = dictionary[kISRECRUITING] as? Bool ?? false
     }
     
     
@@ -119,13 +123,17 @@ func userDictionaryFrom(user: FUser) -> [String: Any] {
             user.id,
             user.email,
             user.fortniteId,
-            user.onBoarding
+            user.onBoarding,
+            user.isPlaying,
+            user.isRecruiting
         ],
                         forKeys: [
             kID as NSCopying,
             kEMAIL as NSCopying,
             kFORTNITEID as NSCopying,
-            kONBOARDING as NSCopying
+            kONBOARDING as NSCopying,
+            kISPLAYING as NSCopying,
+            kISRECRUITING as NSCopying
     ]) as! [String : Any]
     
 }
@@ -138,10 +146,12 @@ func downloadUserFromFirestore(userId: String, email: String, completion: @escap
         
         if snapshot.exists {
             
+            // すでにアカウントを持っていて、DBにUserとして登録されている場合
             saveUserLocally(userDictionary: snapshot.data()! as NSDictionary)
             
         } else {
             
+            // 新規アカウント作成時、ローカルに加え、UserとしてDBに保管される
             let user = FUser(_id: userId, _email: email, _fortniteId: "")
             saveUserLocally(userDictionary: userDictionaryFrom(user: user) as NSDictionary)
             saveUserToFirestore(fUser: user)

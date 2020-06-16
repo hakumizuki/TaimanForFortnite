@@ -17,6 +17,7 @@ struct TaimanPostsView: View {
     }
     
     @State private var showingAddTaiman = false
+    @State private var showingAlertA = false
     
     var body: some View {
         
@@ -78,8 +79,36 @@ struct TaimanPostsView: View {
                         .navigationBarItems(trailing:
                             
                             Button(action: {
-                                self.showingAddTaiman.toggle()
+                                if FUser.currentUser()?.isRecruiting == true || FUser.currentUser()?.isPlaying == true {
+                                    self.showingAlertA = true
+                                } else {
+                                    self.showingAddTaiman.toggle()
+                                }
                             }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
+                        .alert(isPresented: $showingAlertA, content: {
+                            
+                            if FUser.currentUser()?.isRecruiting == true {
+                                return Alert(title: Text("まった！"), message: Text("現在募集中の1v1があります。削除して新しく投稿するか、もう少し待ってみてください。"), primaryButton: .destructive(Text("削除する"), action: {
+                                    
+                                    // 削除して新しい投稿ページに移動
+                                    FirebaseReference(.Taiman).document(FUser.currentId()).delete()
+                                    updateCurrentUser(withValues: [kISRECRUITING: false]) { (error) in
+                                        if error != nil {
+                                            print("募集の取り消しに失敗しました。")
+                                        }
+                                    }
+                                    // 投稿ページへ
+                                    self.showingAddTaiman.toggle()
+                                }), secondaryButton: .default(Text("少し待つ")))
+                            } else {
+                                return Alert(title: Text("プレイ中です！"), message: Text("現在プレイ中の1v1があります。終了するか、ゲームを続行してください。"), primaryButton: .destructive(Text("終了する"), action: {
+                                    
+                                    //TODO: ゲームを終了して、相手にも通知を送りつつ、deleteする。
+                                    
+                                }), secondaryButton: .default(Text("続行する")))
+                            }
+                            
+                        })
                         .sheet(isPresented: $showingAddTaiman) {
                             
                             if FUser.currentUser() != nil &&
