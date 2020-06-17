@@ -266,7 +266,7 @@ struct TaimanRow: View {
                         if FUser.currentUser() != nil &&
                             FUser.currentUser()!.onBoarding {
                             
-                            FirebaseReference(.Taiman).document(FUser.currentId()).updateData([kISENTRIED : true, kENTRIEDPLAYER: FUser.currentId()]) { (error) in
+                            FirebaseReference(.Taiman).document(FUser.currentId()).updateData([kISENTRIED : true, kENTRIEDPLAYER: FUser.currentUser()!.fortniteId]) { (error) in
                                 
                                 if error != nil {
                                     print("エントリーできませんでした。")
@@ -274,7 +274,7 @@ struct TaimanRow: View {
                                     updateCurrentUser(withValues: [kISPLAYING: true]) { (error) in
                                         if error != nil {
                                             print("ユーザーを更新できませんでした。(isPlaying: true)")
-                                        } else {
+                                        } else { 
                                             // TODO: animation on tabbar prompting to go list
                                         }
                                     }

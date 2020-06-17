@@ -51,7 +51,7 @@ class EntriedTaimanListener: ObservableObject {
         return taiman
     }
     
-    // isRecruiting == true エラー発生中
+    // isRecruiting == true 
     static func taimanFromDictionary(_ snapshot: DocumentSnapshot) -> Taiman {
         var taiman = Taiman(id: "", createdAt: Date(), ownerId: "", battleMode: "", playerLevel: "", weaponsRule: "", fallDamage: "", grappler: "", healItem: "", isEntried: false, entriedPlayer: "")
 

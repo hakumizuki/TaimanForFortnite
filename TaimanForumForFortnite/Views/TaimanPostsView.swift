@@ -42,8 +42,12 @@ struct TaimanPostsView: View {
                             .padding(.top, 200)
                     } //End of Scroll View
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
-                        .navigationBarItems(trailing:
-                            
+                        .navigationBarItems(leading:
+                            Button(action: {
+                                FUser.logOutUser { (error) in
+                                    print("Error loging out user: ", error?.localizedDescription ?? "nothing")
+                                }
+                            }){Text("ログアウト")}, trailing:
                             Button(action: {
                                 self.showingAddTaiman.toggle()
                             }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
@@ -74,10 +78,7 @@ struct TaimanPostsView: View {
                                 FUser.logOutUser { (error) in
                                     print("Error loging out user: ", error?.localizedDescription ?? "nothing")
                                 }
-                            }, label: {
-                                Text("ログアウト")
-                            }))
-                        .navigationBarItems(trailing:
+                            }){Text("ログアウト")}, trailing:
                             
                             Button(action: {
                                 if FUser.currentUser()?.isRecruiting == true || FUser.currentUser()?.isPlaying == true {
@@ -92,15 +93,16 @@ struct TaimanPostsView: View {
                                 return Alert(title: Text("まった！"), message: Text("現在募集中の1v1があります。削除して新しく投稿するか、もう少し待ってみてください。"), primaryButton: .destructive(Text("削除する"), action: {
                                     
                                     // 削除して新しい投稿ページに移動
-                                    FirebaseReference(.Taiman).document(FUser.currentId()).delete()
                                     updateCurrentUser(withValues: [kISRECRUITING: false]) { (error) in
                                         if error != nil {
                                             print("募集の取り消しに失敗しました。")
+                                        } else {
+                                            // 削除
+                                            FirebaseReference(.Taiman).document(FUser.currentId()).delete()
+                                            // 投稿ページへ
+                                            self.showingAddTaiman.toggle()
                                         }
-                                    }
-                                    // 投稿ページへ
-                                    self.showingAddTaiman.toggle()
-                                }), secondaryButton: .default(Text("少し待つ")))
+                                    }      }), secondaryButton: .default(Text("少し待つ")))
                             } else {
                                 return Alert(title: Text("プレイ中です！"), message: Text("現在プレイ中の1v1があります。終了するか、ゲームを続行してください。"), primaryButton: .destructive(Text("終了する"), action: {
                                     
@@ -152,12 +154,6 @@ struct oneVone: View {
     }
 }
 
-struct oneVone_Previews: PreviewProvider {
-    static var previews: some View {
-        oneVone()
-    }
-}
-
 
 struct forFortnite: View {
     var body: some View {
@@ -172,11 +168,5 @@ struct forFortnite: View {
                 .padding(.bottom, 105)
         }
         
-    }
-}
-
-struct forFortnite_Previews: PreviewProvider {
-    static var previews: some View {
-        forFortnite()
     }
 }
