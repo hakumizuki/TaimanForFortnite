@@ -152,8 +152,9 @@ struct AddTaiman: View {
                 //仮置き
                 Button(action: {
                     
-                    FirebaseReference(.Taiman).addDocument(data: [
-                        kID: UUID().uuidString,
+                    // ID = currentId()で保存
+                    FirebaseReference(.Taiman).document(FUser.currentId()).setData([
+                        kID: FUser.currentId(),
                         kCREATEDAT: Date(),
                         kOWNERID: FUser.currentUser()!.fortniteId,
                         kBATTLEMODE: self.battleMode[self.selectedBattleMode],

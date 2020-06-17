@@ -32,6 +32,7 @@ class EntriedTaimanListener: ObservableObject {
             FirebaseReference(.Taiman).document(FUser.currentId()).addSnapshotListener { (snapshot, error) in
                 
                 guard let snapshot = snapshot else { return }
+                
                 self.taiman = EntriedTaimanListener.taimanFromDictionary(snapshot)
             }
         }
@@ -50,15 +51,16 @@ class EntriedTaimanListener: ObservableObject {
         return taiman
     }
     
-    // isRecruiting == true
+    // isRecruiting == true エラー発生中
     static func taimanFromDictionary(_ snapshot: DocumentSnapshot) -> Taiman {
-        
-        let taimanData = snapshot.data()!
-        
-        let timestamp = taimanData[kCREATEDAT] as! Timestamp
-        
-        let taiman = Taiman(id: taimanData[kID] as? String ?? UUID().uuidString, createdAt: timestamp.dateValue(), ownerId: taimanData[kOWNERID] as? String ?? "", battleMode: taimanData[kBATTLEMODE] as? String ?? "", playerLevel: taimanData[kPLAYERLEVEL] as? String ?? "", weaponsRule: taimanData[kWEAPONSRULE] as? String ?? "", fallDamage: taimanData[kFALLDAMAGE] as? String ?? "", grappler: taimanData[kGRAPPLER] as? String ?? "", healItem: taimanData[kHEALITEM] as? String ?? "", isEntried: taimanData[kISENTRIED] as? Bool ?? false, entriedPlayer: taimanData[kENTRIEDPLAYER] as? String ?? "")
-        
+        var taiman = Taiman(id: "", createdAt: Date(), ownerId: "", battleMode: "", playerLevel: "", weaponsRule: "", fallDamage: "", grappler: "", healItem: "", isEntried: false, entriedPlayer: "")
+
+        // dangerous?
+        if let taimanData = snapshot.data() {
+            let timestamp = taimanData[kCREATEDAT] as! Timestamp
+            
+            taiman = Taiman(id: taimanData[kID] as? String ?? UUID().uuidString, createdAt: timestamp.dateValue(), ownerId: taimanData[kOWNERID] as? String ?? "", battleMode: taimanData[kBATTLEMODE] as? String ?? "", playerLevel: taimanData[kPLAYERLEVEL] as? String ?? "", weaponsRule: taimanData[kWEAPONSRULE] as? String ?? "", fallDamage: taimanData[kFALLDAMAGE] as? String ?? "", grappler: taimanData[kGRAPPLER] as? String ?? "", healItem: taimanData[kHEALITEM] as? String ?? "", isEntried: taimanData[kISENTRIED] as? Bool ?? false, entriedPlayer: taimanData[kENTRIEDPLAYER] as? String ?? "")
+        }
         return taiman
     }
 }

@@ -39,6 +39,7 @@ struct TaimanPostsView: View {
                     ScrollView(showsIndicators: false) {
                         LottieView(filename: "lf30_editor_ExugZy", loopMode: .loop)
                             .frame(width: 90, height: 90, alignment: .center)
+                            .padding(.top, 200)
                     } //End of Scroll View
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
                         .navigationBarItems(trailing:

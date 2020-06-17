@@ -21,10 +21,10 @@ struct HomeView: View {
                         Text("1v1掲示板")
                     }
                 
-                Text("My Taiman")
+                TaimanListsView()
                     .tabItem {
                         Image(systemName: "doc.on.doc")
-                        Text("1v1リスト")
+                        Text("マイ1v1")
                     }
                 
                 FinishRegistration()
