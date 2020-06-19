@@ -17,7 +17,12 @@ struct TaimanPostsView: View {
     }
     
     @State private var showingAddTaiman = false
+    
+    // ログアウト
     @State private var showingAlertA = false
+    
+    // プレイ中か募集中
+    @State private var showingAlertB = false
     
     var body: some View {
         
@@ -45,9 +50,19 @@ struct TaimanPostsView: View {
                         .navigationBarItems(leading:
                             Button(action: {
                                 FUser.logOutUser { (error) in
-                                    print("Error loging out user: ", error?.localizedDescription ?? "nothing")
+                                    if error != nil {
+                                        print("Error loging out user: ", error!.localizedDescription)
+                                    } else {
+                                        self.showingAlertA.toggle()
+                                    }
                                 }
-                            }){Text("ログアウト")}, trailing:
+                            }){
+                                if FUser.currentUser() != nil {
+                                    Text("ログアウト")
+                                } else {
+                                    // 表示しない
+                                }
+                            }, trailing:
                             Button(action: {
                                 self.showingAddTaiman.toggle()
                             }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
@@ -65,29 +80,47 @@ struct TaimanPostsView: View {
                             }
                     }
                 } else {
+                    
+                    // メイン表示
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 25) {
                             ForEach(self.taimans, id: \.self.id) { taiman in
                                 TaimanRow(taiman: taiman)
                             }
                         }
+                        
                     } //End of Scroll View
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
                         .navigationBarItems(leading:
                             Button(action: {
                                 FUser.logOutUser { (error) in
-                                    print("Error loging out user: ", error?.localizedDescription ?? "nothing")
+                                    if error != nil {
+                                        print("Error loging out user: ", error!.localizedDescription)
+                                    } else {
+                                        self.showingAlertA.toggle()
+                                    }
                                 }
-                            }){Text("ログアウト")}, trailing:
+                            }){
+                                if FUser.currentUser() != nil {
+                                    Text("ログアウト")
+                                } else {
+                                    // 表示しない
+                                }
+                            }
+                                .alert(isPresented: $showingAlertA, content: {
+                                    Alert(title: Text("ログアウトしました！"), dismissButton: .default(Text("OK")))
+                                })
+                            
+                            , trailing:
                             
                             Button(action: {
                                 if FUser.currentUser()?.isRecruiting == true || FUser.currentUser()?.isPlaying == true {
-                                    self.showingAlertA = true
+                                    self.showingAlertB = true
                                 } else {
                                     self.showingAddTaiman.toggle()
                                 }
                             }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
-                        .alert(isPresented: $showingAlertA, content: {
+                        .alert(isPresented: $showingAlertB, content: {
                             
                             if FUser.currentUser()?.isRecruiting == true {
                                 return Alert(title: Text("まった！"), message: Text("現在募集中の1v1があります。削除して新しく投稿するか、もう少し待ってみてください。"), primaryButton: .destructive(Text("削除する"), action: {
@@ -128,7 +161,6 @@ struct TaimanPostsView: View {
                 }
             } //End of Scroll View
         } //End of Navigation View
-        
     } //End of View
 }
 
@@ -150,7 +182,6 @@ struct oneVone: View {
                 .frame(width: 300, height: 100, alignment: .center)
                 .padding(.top, -100)
         }
-        
     }
 }
 
@@ -167,6 +198,5 @@ struct forFortnite: View {
                 .frame(width: 300, height: 150, alignment: .center)
                 .padding(.bottom, 105)
         }
-        
     }
 }

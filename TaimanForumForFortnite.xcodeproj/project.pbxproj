@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E0605E624906E9C0016132B /* FinishRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0605E524906E9C0016132B /* FinishRegistration.swift */; };
 		9E0605E924916FB60016132B /* TaimanListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0605E824916FB60016132B /* TaimanListener.swift */; };
+		9E22A5BD249A09D700B8201F /* EntriedTaimanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E22A5BC249A09D700B8201F /* EntriedTaimanRow.swift */; };
 		9E89DC34248981790019BC97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC33248981790019BC97 /* AppDelegate.swift */; };
 		9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC35248981790019BC97 /* SceneDelegate.swift */; };
 		9E89DC38248981790019BC97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89DC37248981790019BC97 /* HomeView.swift */; };
@@ -45,6 +46,7 @@
 		10A6818CA031BA7C4916E01C /* Pods_TaimanForumForFortnite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaimanForumForFortnite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0605E524906E9C0016132B /* FinishRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistration.swift; sourceTree = "<group>"; };
 		9E0605E824916FB60016132B /* TaimanListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimanListener.swift; sourceTree = "<group>"; };
+		9E22A5BC249A09D700B8201F /* EntriedTaimanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriedTaimanRow.swift; sourceTree = "<group>"; };
 		9E89DC30248981790019BC97 /* TaimanForumForFortnite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaimanForumForFortnite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E89DC33248981790019BC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E89DC35248981790019BC97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				9E89DC5D248BEFF60019BC97 /* TaimanRow.swift */,
+				9E22A5BC249A09D700B8201F /* EntriedTaimanRow.swift */,
 				9E89DC7D248F326A0019BC97 /* LottieView.swift */,
 			);
 			path = Components;
@@ -358,6 +361,7 @@
 				9E89DC58248A9D9A0019BC97 /* Taiman.swift in Sources */,
 				9E89DC36248981790019BC97 /* SceneDelegate.swift in Sources */,
 				9E89DC5E248BEFF60019BC97 /* TaimanRow.swift in Sources */,
+				9E22A5BD249A09D700B8201F /* EntriedTaimanRow.swift in Sources */,
 				9E89DC73248F16FB0019BC97 /* FUser.swift in Sources */,
 				9E89DC4D248A71C00019BC97 /* TaimanListsView.swift in Sources */,
 				9E89DC48248A32FE0019BC97 /* TaimanPostsView.swift in Sources */,

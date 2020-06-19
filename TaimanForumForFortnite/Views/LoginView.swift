@@ -117,6 +117,7 @@ struct LoginView: View {
                 if FUser.currentUser() != nil && FUser.currentUser()!.onBoarding == true {
                     self.presentationMode.wrappedValue.dismiss()
                 } else {
+                    self.presentationMode.wrappedValue.dismiss()
                     self.showingFinishReg.toggle()
                 }
                 

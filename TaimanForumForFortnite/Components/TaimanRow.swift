@@ -10,10 +10,11 @@ import SwiftUI
 
 struct TaimanRow: View {
     
-    @State private var isEntried = false
-    
     // for sheet
     @State private var showLogin = false
+    
+    // for alert
+    @State private var showingAlertA = false
     
     var taiman: Taiman
     
@@ -26,7 +27,7 @@ struct TaimanRow: View {
     }
     
     var bodyColor: Color {
-        if self.isEntried {
+        if self.taiman.isEntried {
             return Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.8761772261))
         } else {
             return Color(#colorLiteral(red: 0.3431862491, green: 0.7568627596, blue: 0.7503025655, alpha: 0.8831068065))
@@ -222,7 +223,7 @@ struct TaimanRow: View {
             // みたいな表記にすべきでしょう。アニメーションもなし。または、クロスマーク。
             if self.taiman.ownerId == FUser.currentUser()?.fortniteId {
                 // なし
-           } else if self.isEntried {
+            } else if self.taiman.isEntried {
                 HStack {
                     Spacer()
                 
@@ -262,29 +263,33 @@ struct TaimanRow: View {
                     
                     Button(action: {
                         
-                        // Entry
-                        if FUser.currentUser() != nil &&
-                            FUser.currentUser()!.onBoarding {
+                        if FUser.currentUser()?.isRecruiting == true || FUser.currentUser()?.isPlaying == true {
+                            self.showingAlertA.toggle()
+                        } else {
                             
-                            FirebaseReference(.Taiman).document(FUser.currentId()).updateData([kISENTRIED : true, kENTRIEDPLAYER: FUser.currentUser()!.fortniteId]) { (error) in
+                            // Entry
+                            if FUser.currentUser() != nil &&
+                                FUser.currentUser()!.onBoarding {
                                 
-                                if error != nil {
-                                    print("エントリーできませんでした。")
-                                } else {
-                                    updateCurrentUser(withValues: [kISPLAYING: true]) { (error) in
-                                        if error != nil {
-                                            print("ユーザーを更新できませんでした。(isPlaying: true)")
-                                        } else { 
-                                            // TODO: animation on tabbar prompting to go list
+                                FirebaseReference(.Taiman).document(self.taiman.id).updateData([kISENTRIED : true, kENTRIEDPLAYER: FUser.currentUser()!.fortniteId]) { (error) in
+                                    
+                                    if error != nil {
+                                        print("エントリーできませんでした。")
+                                    } else {
+                                        updateCurrentUser(withValues: [kISPLAYING: true]) { (error) in
+                                            if error != nil {
+                                                print("ユーザーを更新できませんでした。(isPlaying: true)")
+                                            } else {
+                                                // TODO: animation on tabbar prompting to go list
+                                            }
                                         }
                                     }
                                 }
+                            } else {
+                                // ログインされていなければログイン画面表示
+                                self.showLogin.toggle()
                             }
-                        } else {
-                            self.showLogin.toggle()
                         }
-                        
-                        
                     }) {
                         Text("エントリーする")
                             .frame(width: 160, height: 40, alignment: .center)
@@ -294,7 +299,7 @@ struct TaimanRow: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)), lineWidth: 4)
-                            )
+                        )
                             .cornerRadius(10)
                             .shadow(radius: 10)
                             .padding(.leading)
@@ -307,6 +312,29 @@ struct TaimanRow: View {
                                 LoginView()
                             }
                     }
+                    .alert(isPresented: $showingAlertA, content: {
+                        
+                        if FUser.currentUser()?.isRecruiting == true {
+                            return Alert(title: Text("まった！"), message: Text("現在募集中の1v1があります。削除するか、もう少し待ってみてください。"), primaryButton: .destructive(Text("削除する"), action: {
+                                
+                                // 削除して新しい投稿ページに移動
+                                updateCurrentUser(withValues: [kISRECRUITING: false]) { (error) in
+                                    if error != nil {
+                                        print("募集の取り消しに失敗しました。")
+                                    } else {
+                                        // 削除
+                                        FirebaseReference(.Taiman).document(FUser.currentId()).delete()
+                                    }
+                                }      }), secondaryButton: .default(Text("少し待つ")))
+                        } else {
+                            return Alert(title: Text("プレイ中です！"), message: Text("現在プレイ中の1v1があります。終了するか、ゲームを続行してください。"), primaryButton: .destructive(Text("終了する"), action: {
+                                
+                                //TODO: ゲームを終了して、相手にも通知を送りつつ、deleteする。
+                                
+                            }), secondaryButton: .default(Text("続行する")))
+                        }
+                        
+                    })
             //エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！　エントリーボタン！
                     
                     

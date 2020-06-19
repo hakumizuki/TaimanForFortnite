@@ -51,8 +51,22 @@
                         }
                     } else if FUser.currentUser()?.isPlaying == true {
                         ScrollView(showsIndicators: false) {
-                            // entriedPlayerがcurrentId()と同じTaimanを表示
-                            TaimanRow(taiman: taiman)
+                            VStack(alignment: .center) {
+                                Text("エントリーしました！")
+                                    .font(.custom("NotoSansJP-Bold", size: 19))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                                Text("ID: \(self.taiman.ownerId)")
+                                    .font(.custom("NotoSansJP-Bold", size: 17))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                                // entriedPlayerがcurrentId()と同じTaimanを表示
+                                TaimanRow(taiman: taiman)
+                                Text("ゲーム内でフレンドになり、1v1を開始しましょう！")
+                                    .font(.custom("NotoSansJP-Bold", size: 17))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                            }
                         }
                         .navigationBarTitle("エントリーした1v1", displayMode: .inline)
                         .sheet(isPresented: $showLogin) {
@@ -64,8 +78,22 @@
                         }
                     } else if FUser.currentUser()?.isRecruiting == true {
                         ScrollView(showsIndicators: false) {
-                            // entriedPlayerがcurrentId()と同じTaimanを表示
-                            TaimanRow(taiman: taiman)
+                            VStack(alignment: .center) {
+                                Text("プレイヤーがエントリーしました！")
+                                    .font(.custom("NotoSansJP-Bold", size: 19))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                                Text("ID: \(self.taiman.entriedPlayer)")
+                                    .font(.custom("NotoSansJP-Bold", size: 17))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                                // entriedPlayerがcurrentId()と同じTaimanを表示
+                                TaimanRow(taiman: taiman)
+                                Text("ゲーム内でフレンドになり、1v1を開始しましょう！")
+                                    .font(.custom("NotoSansJP-Bold", size: 17))
+                                    .foregroundColor(Color.white)
+                                    .padding()
+                            }
                         }
                         .navigationBarTitle("エントリーした1v1", displayMode: .inline)
                         .sheet(isPresented: $showLogin) {

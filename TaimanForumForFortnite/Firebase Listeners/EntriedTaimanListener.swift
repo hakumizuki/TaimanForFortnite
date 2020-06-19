@@ -20,12 +20,12 @@ class EntriedTaimanListener: ObservableObject {
     func downloadTaiman() {
         
         if FUser.currentUser()?.isPlaying == true {
-            FirebaseReference(.Taiman).whereField(kENTRIEDPLAYER, isEqualTo: FUser.currentId()).addSnapshotListener { (snapshot, error) in
+            FirebaseReference(.Taiman).whereField(kENTRIEDPLAYER, isEqualTo: FUser.currentUser()!.fortniteId).addSnapshotListener { (snapshot, error) in
                 
                 guard let snapshot = snapshot else { return }
                 
                 if !snapshot.isEmpty {
-                    self.taiman = EntriedTaimanListener.taimanFromDictionary(snapshot)
+                    self.taiman = EntriedTaimanListener.taimanFromDictionaryA(snapshot)
                 }
             }
         } else if FUser.currentUser()?.isRecruiting == true {
@@ -33,14 +33,14 @@ class EntriedTaimanListener: ObservableObject {
                 
                 guard let snapshot = snapshot else { return }
                 
-                self.taiman = EntriedTaimanListener.taimanFromDictionary(snapshot)
+                self.taiman = EntriedTaimanListener.taimanFromDictionaryB(snapshot)
             }
         }
         
     }
     
-    // isPlaying == true
-    static func taimanFromDictionary(_ snapshot: QuerySnapshot) -> Taiman {
+    // isPlaying == true NOT WORKING
+    static func taimanFromDictionaryA(_ snapshot: QuerySnapshot) -> Taiman {
         
         let taimanData = snapshot.documents[0].data()
         
@@ -51,11 +51,10 @@ class EntriedTaimanListener: ObservableObject {
         return taiman
     }
     
-    // isRecruiting == true 
-    static func taimanFromDictionary(_ snapshot: DocumentSnapshot) -> Taiman {
+    // isRecruiting == true WORKING
+    static func taimanFromDictionaryB(_ snapshot: DocumentSnapshot) -> Taiman {
         var taiman = Taiman(id: "", createdAt: Date(), ownerId: "", battleMode: "", playerLevel: "", weaponsRule: "", fallDamage: "", grappler: "", healItem: "", isEntried: false, entriedPlayer: "")
 
-        // dangerous?
         if let taimanData = snapshot.data() {
             let timestamp = taimanData[kCREATEDAT] as! Timestamp
             
