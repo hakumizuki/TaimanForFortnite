@@ -39,7 +39,7 @@ class EntriedTaimanListener: ObservableObject {
         
     }
     
-    // isPlaying == true NOT WORKING
+    // isPlaying == true
     static func taimanFromDictionaryA(_ snapshot: QuerySnapshot) -> Taiman {
         
         let taimanData = snapshot.documents[0].data()
@@ -51,7 +51,7 @@ class EntriedTaimanListener: ObservableObject {
         return taiman
     }
     
-    // isRecruiting == true WORKING
+    // isRecruiting == true
     static func taimanFromDictionaryB(_ snapshot: DocumentSnapshot) -> Taiman {
         var taiman = Taiman(id: "", createdAt: Date(), ownerId: "", battleMode: "", playerLevel: "", weaponsRule: "", fallDamage: "", grappler: "", healItem: "", isEntried: false, entriedPlayer: "")
 

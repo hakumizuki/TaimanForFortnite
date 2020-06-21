@@ -24,6 +24,9 @@ struct TaimanPostsView: View {
     // プレイ中か募集中
     @State private var showingAlertB = false
     
+    // 募集中またはプレイ中にログアウト
+    @State private var showingAlertC = false
+    
     var body: some View {
         
         NavigationView {
@@ -39,6 +42,9 @@ struct TaimanPostsView: View {
                     forFortnite()
                         .padding(.bottom, -30)
                 }
+                .alert(isPresented: $showingAlertC) {
+                    Alert(title: Text("まった！"), message: Text("プレイ中または募集中の1v1があります。1v1を終了するか、削除することでログアウトすることができます。"), dismissButton: .default(Text("了解")))
+                }
                 
                 if self.taimans == [] {
                     ScrollView(showsIndicators: false) {
@@ -49,11 +55,15 @@ struct TaimanPostsView: View {
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
                         .navigationBarItems(leading:
                             Button(action: {
-                                FUser.logOutUser { (error) in
-                                    if error != nil {
-                                        print("Error loging out user: ", error!.localizedDescription)
-                                    } else {
-                                        self.showingAlertA.toggle()
+                                if FUser.currentUser()?.isPlaying == true || FUser.currentUser()?.isRecruiting == true {
+                                    self.showingAlertC.toggle()
+                                } else {
+                                    FUser.logOutUser { (error) in
+                                        if error != nil {
+                                            print("Error loging out user: ", error!.localizedDescription)
+                                        } else {
+                                                self.showingAlertA.toggle()
+                                        }
                                     }
                                 }
                             }){
@@ -62,7 +72,12 @@ struct TaimanPostsView: View {
                                 } else {
                                     // 表示しない
                                 }
-                            }, trailing:
+                            }
+                            .alert(isPresented: $showingAlertA, content: {
+                                Alert(title: Text("ログアウトしました！"), dismissButton: .default(Text("OK")))
+                            })
+                            
+                            , trailing:
                             Button(action: {
                                 self.showingAddTaiman.toggle()
                             }){Image(systemName: "plus.square.fill").imageScale(.large).foregroundColor(Color(#colorLiteral(red: 0.3790057302, green: 0.882291019, blue: 0.902651906, alpha: 1)))})
@@ -93,11 +108,15 @@ struct TaimanPostsView: View {
                         .navigationBarTitle("1v1 掲示板", displayMode: .inline)
                         .navigationBarItems(leading:
                             Button(action: {
-                                FUser.logOutUser { (error) in
-                                    if error != nil {
-                                        print("Error loging out user: ", error!.localizedDescription)
-                                    } else {
-                                        self.showingAlertA.toggle()
+                                if FUser.currentUser()?.isPlaying == true || FUser.currentUser()?.isRecruiting == true {
+                                    self.showingAlertC.toggle()
+                                } else {
+                                    FUser.logOutUser { (error) in
+                                        if error != nil {
+                                            print("Error loging out user: ", error!.localizedDescription)
+                                        } else {
+                                                self.showingAlertA.toggle()
+                                        }
                                     }
                                 }
                             }){

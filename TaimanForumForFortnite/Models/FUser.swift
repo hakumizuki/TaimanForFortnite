@@ -200,3 +200,14 @@ func updateCurrentUser(withValues: [String: Any], completion: @escaping (_ error
         }
     }
 }
+
+func updateCurrentUserOnline(with values: [String: Any], completion: @escaping (_ error: Error?) -> Void) {
+    FirebaseReference(.User).document(FUser.currentId()).updateData(values) { (error) in
+        if error == nil {
+            print("User has updated online successfully.")
+        } else {
+            print("Error updating User online: ", error!.localizedDescription)
+        }
+        completion(error)
+    }
+}

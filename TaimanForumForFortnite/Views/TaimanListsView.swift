@@ -14,6 +14,8 @@
         
         @State private var showLogin = false
         
+        @State private var showingAlertConfirmingToFinish = false
+        
         var taiman: Taiman {
             return self.entriedTaimanListener.taiman
         }
@@ -52,6 +54,7 @@
                     } else if FUser.currentUser()?.isPlaying == true {
                         ScrollView(showsIndicators: false) {
                             VStack(alignment: .center) {
+                                
                                 Text("エントリーしました！")
                                     .font(.custom("NotoSansJP-Bold", size: 19))
                                     .foregroundColor(Color.white)
@@ -60,12 +63,47 @@
                                     .font(.custom("NotoSansJP-Bold", size: 17))
                                     .foregroundColor(Color.white)
                                     .padding()
+                                
                                 // entriedPlayerがcurrentId()と同じTaimanを表示
                                 TaimanRow(taiman: taiman)
+                                
                                 Text("ゲーム内でフレンドになり、1v1を開始しましょう！")
                                     .font(.custom("NotoSansJP-Bold", size: 17))
                                     .foregroundColor(Color.white)
                                     .padding()
+                                
+                                Button(action: {
+                                    self.showingAlertConfirmingToFinish.toggle()
+                                }) {
+                                    Text("終了する")
+                                        .frame(width: 160, height: 40, alignment: .center)
+                                        .foregroundColor(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)))
+                                        .font(.custom("NotoSansJP-Bold", size: 17))
+                                        .background(Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 0.8010755565)))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(#colorLiteral(red: 0.8235294223, green: 0.0615534166, blue: 0, alpha: 1)), lineWidth: 4)
+                                    )
+                                        .cornerRadius(10)
+                                        .shadow(radius: 10)
+                                }
+                                .alert(isPresented: $showingAlertConfirmingToFinish) {
+                                    Alert(title: Text("確認"), message: Text("終了してよろしいですか？"), primaryButton: .destructive(Text("終了"), action: {
+                                        
+                                        // ゲームを終了して、1v1を削除、isPlaying&isRecruiting = false
+                                        updateCurrentUser(withValues: [kISPLAYING: false]) { (error) in
+                                            
+                                            if error != nil {
+                                                print("ユーザーを更新できませんでした: ", error!.localizedDescription)
+                                            } else {
+                                                // 削除
+                                                FirebaseReference(.Taiman).document(self.taiman.id).delete()
+                                                // ownerIdのUserのisRecruitingをローカルごとfalseにする
+                                            }
+                                        }
+                                        
+                                    }), secondaryButton: .default(Text("まだ続ける")))
+                                }
                             }
                         }
                         .navigationBarTitle("エントリーした1v1", displayMode: .inline)
@@ -87,12 +125,47 @@
                                     .font(.custom("NotoSansJP-Bold", size: 17))
                                     .foregroundColor(Color.white)
                                     .padding()
+                                
                                 // entriedPlayerがcurrentId()と同じTaimanを表示
                                 TaimanRow(taiman: taiman)
+                                
                                 Text("ゲーム内でフレンドになり、1v1を開始しましょう！")
                                     .font(.custom("NotoSansJP-Bold", size: 17))
                                     .foregroundColor(Color.white)
                                     .padding()
+                                
+                                Button(action: {
+                                    self.showingAlertConfirmingToFinish.toggle()
+                                }) {
+                                    Text("終了する")
+                                        .frame(width: 160, height: 40, alignment: .center)
+                                        .foregroundColor(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)))
+                                        .font(.custom("NotoSansJP-Bold", size: 17))
+                                        .background(Color(#colorLiteral(red: 0.0650389716, green: 0.1292048097, blue: 0.2307234108, alpha: 0.8010755565)))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(#colorLiteral(red: 0.8235294223, green: 0.0615534166, blue: 0, alpha: 1)), lineWidth: 4)
+                                    )
+                                        .cornerRadius(10)
+                                        .shadow(radius: 10)
+                                }
+                                .alert(isPresented: $showingAlertConfirmingToFinish) {
+                                    Alert(title: Text("確認"), message: Text("終了してよろしいですか？"), primaryButton: .destructive(Text("終了"), action: {
+                                        
+                                        // ゲームを終了して、1v1を削除、isPlaying&isRecruiting = false
+                                        updateCurrentUser(withValues: [kISRECRUITING: false]) { (error) in
+                                            
+                                            if error != nil {
+                                                print("ユーザーを更新できませんでした: ", error!.localizedDescription)
+                                            } else {
+                                                // 削除
+                                                FirebaseReference(.Taiman).document(self.taiman.id).delete()
+                                                // ownerIdのUserのisPlayingをローカルごとfalseにする
+                                            }
+                                        }
+                                        
+                                    }), secondaryButton: .default(Text("まだ続ける")))
+                                }
                             }
                         }
                         .navigationBarTitle("エントリーした1v1", displayMode: .inline)
