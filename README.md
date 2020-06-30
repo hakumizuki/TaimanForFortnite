@@ -1,5 +1,5 @@
 # TaimanForFortnite(1v1forFortnite)
-- 現在このアプリはStoryboardで書き直しています！
+- 現在このアプリは別リポジトリでStoryboardで書き直しています！また、機能追加や修正もしていきます。
 
 ## 使用言語、技術 Techs and language used
 - 言語とツール Language and tools
