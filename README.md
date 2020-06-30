@@ -1,4 +1,5 @@
 # TaimanForFortnite(1v1forFortnite)
+- 現在このアプリはStoryboardで書き直しています！
 
 ## 使用言語、技術 Techs and language used
 - 言語とツール Language and tools
@@ -31,5 +32,3 @@
  おすすめクリエイティブ島や、プレイ、技術解説動画の掲載
  
 - チュートリアル導入
-
-- その他は秘密〜〜〜
